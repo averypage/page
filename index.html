@@ -1,0 +1,1895 @@
+
+<!DOCTYPE html>
+<html lang="en" data-shade="1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Profile Page?</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --shade-1: #000000;
+            --shade-2: #0a0a0a;
+            --shade-3: #151515;
+            --shade-4: #222222;
+            --shade-5: #333333;
+            --shade-6: #555555;
+            --shade-7: #888888;
+            --shade-8: #ffffff;
+        }
+
+
+        [data-shade="1"] {
+            --bg-primary: #000000;
+            --bg-secondary: #050505;
+            --bg-card: rgba(5, 5, 5, 0.8);
+            --border-color: rgba(255, 255, 255, 0.04);
+            --text-primary: #ffffff;
+            --text-secondary: #777777;
+            --text-muted: #444444;
+            --accent: #ffffff;
+            --glow: rgba(255, 255, 255, 0.1);
+        }
+
+
+        [data-shade="2"] {
+            --bg-primary: #050505;
+            --bg-secondary: #0a0a0a;
+            --bg-card: rgba(10, 10, 10, 0.8);
+            --border-color: rgba(255, 255, 255, 0.05);
+            --text-primary: #f0f0f0;
+            --text-secondary: #808080;
+            --text-muted: #4a4a4a;
+            --accent: #e0e0e0;
+            --glow: rgba(255, 255, 255, 0.12);
+        }
+
+
+        [data-shade="3"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: rgba(15, 15, 15, 0.8);
+            --border-color: rgba(255, 255, 255, 0.06);
+            --text-primary: #e8e8e8;
+            --text-secondary: #888888;
+            --text-muted: #505050;
+            --accent: #d0d0d0;
+            --glow: rgba(255, 255, 255, 0.15);
+        }
+
+
+        [data-shade="4"] {
+            --bg-primary: #111111;
+            --bg-secondary: #1a1a1a;
+            --bg-card: rgba(22, 22, 22, 0.8);
+            --border-color: rgba(255, 255, 255, 0.07);
+            --text-primary: #e0e0e0;
+            --text-secondary: #909090;
+            --text-muted: #585858;
+            --accent: #c5c5c5;
+            --glow: rgba(255, 255, 255, 0.18);
+        }
+
+
+        [data-shade="5"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #252525;
+            --bg-card: rgba(30, 30, 30, 0.8);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #d5d5d5;
+            --text-secondary: #999999;
+            --text-muted: #606060;
+            --accent: #b8b8b8;
+            --glow: rgba(255, 255, 255, 0.2);
+        }
+
+
+        [data-shade="6"] {
+            --bg-primary: #252525;
+            --bg-secondary: #333333;
+            --bg-card: rgba(40, 40, 40, 0.8);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-primary: #cccccc;
+            --text-secondary: #a0a0a0;
+            --text-muted: #686868;
+            --accent: #aaaaaa;
+            --glow: rgba(255, 255, 255, 0.22);
+        }
+
+
+        [data-shade="7"] {
+            --bg-primary: #3a3a3a;
+            --bg-secondary: #4a4a4a;
+            --bg-card: rgba(55, 55, 55, 0.8);
+            --border-color: rgba(255, 255, 255, 0.12);
+            --text-primary: #c0c0c0;
+            --text-secondary: #a8a8a8;
+            --text-muted: #707070;
+            --accent: #9a9a9a;
+            --glow: rgba(255, 255, 255, 0.25);
+        }
+
+
+        [data-shade="8"] {
+            --bg-primary: #e8e8e8;
+            --bg-secondary: #f5f5f5;
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --border-color: rgba(0, 0, 0, 0.08);
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+            --accent: #222222;
+            --glow: rgba(0, 0, 0, 0.1);
+        }
+
+
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            width: 100vw;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            position: relative;
+            transition: background 0.5s ease;
+        }
+
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            overflow: hidden;
+        }
+
+        .video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.3) contrast(1.1) saturate(0);
+            transform: scale(1.1);
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 0%, var(--bg-primary) 100%);
+            z-index: -2;
+            transition: background 0.5s ease;
+        }
+
+
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9998;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9997;
+            pointer-events: none;
+            box-shadow: inset 0 0 200px rgba(0,0,0,0.9);
+        }
+
+        /* Stars Canvas */
+        #starsCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+
+        .wrapper {
+            perspective: 2000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            z-index: 10;
+            padding: 40px 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+
+        .clock-container {
+            position: relative;
+            margin-bottom: -10px;
+        }
+
+        .clock-display {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.1em;
+            padding: 6px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            cursor: default;
+            transition: all 0.3s ease;
+        }
+
+        .clock-display:hover {
+            background: var(--bg-secondary);
+            border-color: var(--text-muted);
+        }
+
+
+        .tooltip {
+            position: absolute;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px 16px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10000;
+            white-space: nowrap;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+
+        .tooltip.top {
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+        }
+
+        .tooltip.bottom {
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+        }
+
+        .has-tooltip:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .has-tooltip:hover .tooltip.top {
+            transform: translateX(-50%) scale(1);
+        }
+
+        .has-tooltip:hover .tooltip.bottom {
+            transform: translateX(-50%) scale(1);
+        }
+
+        .tooltip-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 6px;
+        }
+
+        .tooltip-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .tooltip-row.separator {
+            padding-top: 8px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 8px;
+        }
+
+        .tooltip-label {
+            color: var(--text-muted);
+        }
+
+        .tooltip-value {
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .tooltip-simple {
+            padding: 8px 12px;
+            font-size: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .time-diff {
+            color: var(--text-secondary);
+        }
+
+        .time-diff.ahead { color: #8a8; }
+        .time-diff.behind { color: #a88; }
+        .time-diff.same { color: var(--text-muted); }
+
+
+        .card {
+            width: 400px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            backdrop-filter: blur(40px) saturate(120%);
+            -webkit-backdrop-filter: blur(40px) saturate(120%);
+            box-shadow: 
+                0 50px 100px rgba(0,0,0,0.6),
+                0 0 0 1px rgba(255,255,255,0.02),
+                inset 0 1px 0 rgba(255,255,255,0.03);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: cardReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes cardReveal {
+            0% { 
+                opacity: 0; 
+                transform: translateY(80px) scale(0.95);
+                filter: blur(10px);
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.02), transparent);
+            transition: left 0.8s ease;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .edge-glow {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 24px;
+            pointer-events: none;
+            z-index: 101;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .card:hover .edge-glow {
+            opacity: 1;
+        }
+
+        .breathing-border {
+            position: absolute;
+            top: -1px; left: -1px; right: -1px; bottom: -1px;
+            border-radius: 25px;
+            border: 1px solid transparent;
+            background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+                        linear-gradient(135deg, rgba(255,255,255,0.08), transparent, rgba(255,255,255,0.03)) border-box;
+            z-index: -1;
+            animation: breathe 4s ease-in-out infinite;
+            transition: background 0.5s ease;
+        }
+
+        @keyframes breathe {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+
+        .banner {
+            height: 140px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-secondary);
+        }
+
+        .banner img {
+            width: 100%;
+            height: 160%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.5) saturate(0) contrast(1.1);
+            transform: translateY(-15%);
+            transition: transform 0.5s ease, filter 0.5s ease;
+            pointer-events: none;
+        }
+
+        .card:hover .banner img {
+            transform: translateY(-15%) scale(1.03);
+            filter: brightness(0.55) saturate(0) contrast(1.15);
+        }
+
+        .banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80%;
+            background: linear-gradient(to top, var(--bg-card), transparent);
+            pointer-events: none;
+        }
+
+
+        .pfp-wrapper {
+            width: 110px;
+            height: 110px;
+            margin: -55px 0 0 28px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .pfp-glow {
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            filter: blur(15px);
+        }
+
+        .pfp-wrapper:hover .pfp-glow {
+            opacity: 1;
+        }
+
+        .pfp-ring {
+            position: absolute;
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            animation: ringPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.05); opacity: 0.6; }
+        }
+
+        .pfp-ring-inner {
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            border-radius: 50%;
+            border: 1px solid transparent;
+            border-top-color: var(--text-muted);
+            animation: ringRotate 8s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .pfp-wrapper:hover .pfp-ring-inner {
+            opacity: 1;
+        }
+
+        @keyframes ringRotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .pfp-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 20%;
+            border: 3px solid var(--bg-secondary);
+            background: var(--bg-primary);
+            filter: saturate(0) contrast(1.1);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .pfp-wrapper:hover .pfp-img {
+            transform: scale(1.05);
+            border-color: var(--text-muted);
+            filter: saturate(0) contrast(1.2) brightness(1.1);
+        }
+
+
+        .status-container {
+            position: absolute;
+            bottom: 3px;
+            right: 3px;
+            width: 24px;
+            height: 24px;
+            z-index: 10;
+        }
+
+        .status-dot {
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            border: 3px solid var(--bg-secondary);
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+        }
+
+
+        @keyframes ping {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+
+        .badges-container {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            gap: 6px;
+            z-index: 50;
+        }
+
+        .badge-link {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge-link:hover {
+            background: var(--bg-secondary);
+            border-color: var(--text-muted);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .badge-link svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--text-secondary);
+            transition: fill 0.3s;
+        }
+
+        .badge-link:hover svg {
+            fill: var(--text-primary);
+        }
+
+        .badge-link .tooltip {
+            bottom: auto;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+        }
+
+        .badge-link:hover .tooltip {
+            transform: translateX(-50%) scale(1);
+        }
+
+
+        .content {
+            padding: 18px 28px 28px 28px;
+        }
+
+
+        .identity h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+            transition: color 0.5s ease;
+        }
+
+        .identity h1::before,
+        .identity h1::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .identity h1::before {
+            color: var(--text-secondary);
+            animation: glitch1 0.3s infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+        }
+
+        .identity h1::after {
+            color: var(--text-muted);
+            animation: glitch2 0.3s infinite;
+            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+        }
+
+        .identity h1:hover::before,
+        .identity h1:hover::after {
+            opacity: 0.7;
+        }
+
+        @keyframes glitch1 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes glitch2 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(2px, -2px); }
+            40% { transform: translate(2px, 2px); }
+            60% { transform: translate(-2px, -2px); }
+            80% { transform: translate(-2px, 2px); }
+        }
+
+        .identity .handle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 18px;
+            letter-spacing: 0.02em;
+            transition: color 0.5s ease;
+        }
+
+
+        .bio-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 22px;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+            transition: color 0.5s ease;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 1px;
+            height: 1em;
+            background: var(--accent);
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin-bottom: 22px;
+        }
+
+
+        .player {
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: visible;
+        }
+
+        .player::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%);
+            pointer-events: none;
+            border-radius: 16px;
+        }
+
+        .player:hover {
+            border-color: var(--text-muted);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .player-top {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        /* Track Info with Tooltip */
+        .track-info-wrapper {
+            flex: 1;
+            min-width: 0;
+            position: relative;
+            overflow: visible;
+        }
+
+        .track-info {
+            cursor: default;
+        }
+
+        .track-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 2px;
+            transition: color 0.5s ease;
+        }
+
+        .track-artist {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: color 0.5s ease;
+        }
+
+
+        .track-info-wrapper .tooltip {
+            bottom: calc(100% + 10px);
+            left: 0;
+            transform: translateX(0) scale(0.9);
+            transform-origin: bottom left;
+        }
+
+        .track-info-wrapper:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0) scale(1);
+        }
+
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .ctrl-btn {
+            background: transparent;
+            color: var(--text-secondary);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .ctrl-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--glow);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
+
+        .ctrl-btn:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ctrl-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .ctrl-btn:active {
+            transform: scale(0.9);
+        }
+
+        .ctrl-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            position: relative;
+            z-index: 1;
+        }
+
+        .play-btn {
+            background: var(--accent);
+            color: var(--bg-primary);
+            width: 42px;
+            height: 42px;
+            transition: all 0.3s, background 0.5s, color 0.5s;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px var(--glow);
+        }
+
+        .play-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .ctrl-btn.active {
+            color: var(--text-primary);
+        }
+
+        .ctrl-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* Pulse animation for autoplay blocked */
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 var(--glow);
+            }
+            50% { 
+                transform: scale(1.05); 
+                box-shadow: 0 0 20px var(--glow);
+            }
+        }
+
+
+        .progress-section {
+            margin-bottom: 14px;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 4px;
+            background: var(--text-muted);
+            border-radius: 2px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+
+        .progress-bar-container:hover {
+            opacity: 0.6;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--text-secondary), var(--accent));
+            width: 0%;
+            border-radius: 2px;
+            position: relative;
+            transition: width 0.1s linear;
+        }
+
+        .progress-handle {
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s;
+            box-shadow: 0 0 10px var(--glow);
+        }
+
+        .progress-bar-container:hover .progress-handle {
+            opacity: 1;
+        }
+
+        /* Volume */
+        .volume-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .volume-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s;
+        }
+
+        .volume-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .volume-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .volume-slider {
+            -webkit-appearance: none;
+            flex: 1;
+            height: 3px;
+            background: var(--text-muted);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+            opacity: 0.4;
+            transition: opacity 0.3s;
+        }
+
+        .volume-slider:hover {
+            opacity: 0.7;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px var(--glow);
+        }
+
+        .volume-slider::-moz-range-thumb {
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        .visualizer {
+            display: flex;
+            gap: 2px;
+            height: 24px;
+            align-items: flex-end;
+            justify-content: center;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .bar {
+            width: 2px;
+            background: linear-gradient(to top, var(--text-muted), var(--accent));
+            border-radius: 1px;
+            transition: height 0.05s ease, background 0.5s ease;
+        }
+
+
+        .shade-picker {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            animation: fadeUp 1s ease-out 0.5s backwards;
+            transition: all 0.5s ease;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .shade-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .shade-dot:hover {
+            transform: scale(1.2);
+        }
+
+        .shade-dot.active {
+            transform: scale(1.15);
+            border-color: var(--text-primary);
+            box-shadow: 0 0 15px var(--glow);
+        }
+
+        .shade-1 { background: #000000; border-color: #333; }
+        .shade-2 { background: #151515; }
+        .shade-3 { background: #2a2a2a; }
+        .shade-4 { background: #404040; }
+        .shade-5 { background: #606060; }
+        .shade-6 { background: #808080; }
+        .shade-7 { background: #a0a0a0; }
+        .shade-8 { background: #ffffff; border-color: #ccc; }
+
+        [data-shade="8"] .shade-dot.active {
+            border-color: var(--text-primary);
+        }
+
+
+        .ripple {
+            position: fixed;
+            border-radius: 50%;
+            background: var(--glow);
+            transform: scale(0);
+            animation: rippleEffect 0.6s linear;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        @keyframes rippleEffect {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+
+        @media (max-width: 768px) {
+            .wrapper { padding: 20px 15px; }
+            .card { width: 100%; max-width: 380px; }
+            .banner { height: 120px; }
+            .pfp-wrapper { width: 90px; height: 90px; margin-top: -45px; }
+            .identity h1 { font-size: 1.5rem; }
+            .shade-picker { gap: 6px; padding: 8px 12px; }
+            .shade-dot { width: 18px; height: 18px; }
+            .badges-container { top: 8px; right: 8px; gap: 4px; }
+            .badge-link { width: 28px; height: 28px; }
+            .badge-link svg { width: 14px; height: 14px; }
+        }
+
+        .hidden { display: none !important; }
+
+
+        #security-block {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 999999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="security-block"></div>
+
+
+    <div class="video-bg">
+        <video autoplay muted loop playsinline id="bgVideo">
+            <source src="gfx.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="bg-overlay"></div>
+
+
+    <canvas id="starsCanvas"></canvas>
+    <div class="grain"></div>
+    <div class="vignette"></div>
+
+    <div class="wrapper" id="mainContent">
+
+        <div class="clock-container has-tooltip">
+            <div class="clock-display" id="clock">00:00:00 GMT+1</div>
+            <div class="tooltip bottom" id="clockTooltip">
+                <div class="tooltip-row">
+                    <span class="tooltip-label">My Time (GMT+1)</span>
+                    <span class="tooltip-value" id="myTime">00:00:00</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Your Time</span>
+                    <span class="tooltip-value" id="yourTime">00:00:00</span>
+                </div>
+                <div class="tooltip-row separator">
+                    <span class="tooltip-label">Difference</span>
+                    <span class="tooltip-value time-diff" id="timeDiff">+0h</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card" id="tiltCard">
+            <div class="breathing-border"></div>
+            <div class="edge-glow" id="edgeGlow"></div>
+
+
+            <div class="badges-container">
+                <!-- Website 1 -->
+                <a class="badge-link has-tooltip" href="https://site-64.com" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    <div class="tooltip tooltip-simple">Site-64</div>
+                </a>
+                <!-- Website 2 -->
+                <a class="badge-link has-tooltip" href="https://another-site.com" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    <div class="tooltip tooltip-simple">another-site.com</div>
+                </a>
+                <!-- GitHub -->
+                <a class="badge-link has-tooltip" href="https://github.com/averypage/averypage.github.io" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <div class="tooltip tooltip-simple">GitHub</div>
+                </a>
+                <!-- Roblox -->
+                <a class="badge-link has-tooltip" href="https://www.roblox.com/users/8120336784/profile" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24"><path d="M5.164 0L.16 18.928 18.836 24l5.004-18.928L5.164 0zm9.086 14.044l-4.157-1.13 1.13-4.157 4.157 1.13-1.13 4.157z"/></svg>
+                    <div class="tooltip tooltip-simple">Roblox</div>
+                </a>
+            </div>
+            
+
+            <div class="banner">
+                <img src="bg.jpg" alt="Banner" draggable="false">
+            </div>
+
+            <div class="pfp-wrapper">
+                <div class="pfp-glow"></div>
+                <div class="pfp-ring"></div>
+                <div class="pfp-ring-inner"></div>
+                <img src="pfp.jpg" alt="Profile" class="pfp-img" draggable="false">
+                <div class="status-container">
+                    <div class="status-ping"></div>
+                    <div class="status-dot"></div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="identity">
+                    <h1 data-text="avery ♡">avery ♡</h1>
+                    <span class="handle">@avery.u</span>
+                </div>
+
+                <div class="bio-text" id="bioText"></div>
+
+                <div class="divider"></div>
+
+
+                <div class="player">
+                    <div class="player-top">
+
+                        <div class="track-info-wrapper has-tooltip">
+                            <div class="track-info">
+                                <div class="track-title">Patience</div>
+                                <div class="track-artist">Nas, Damian Marley</div>
+                            </div>
+                            <div class="tooltip">
+                                <div class="tooltip-row">
+                                    <span class="tooltip-label">Title</span>
+                                    <span class="tooltip-value">Patience</span>
+                                </div>
+                                <div class="tooltip-row">
+                                    <span class="tooltip-label">Artists</span>
+                                    <span class="tooltip-value">Nas, Damian "Jr. Gong" Marley</span>
+                                </div>
+                                <div class="tooltip-row">
+                                    <span class="tooltip-label">Album</span>
+                                    <span class="tooltip-value">Distant Relatives</span>
+                                </div>
+                                <div class="tooltip-row separator">
+                                    <span class="tooltip-label">Year</span>
+                                    <span class="tooltip-value">2010</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="controls">
+                            <button class="ctrl-btn" id="shuffleBtn" title="Shuffle">
+                                <svg viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
+                            </button>
+                            <button class="ctrl-btn" id="prevBtn" title="Previous">
+                                <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                            </button>
+                            <button class="ctrl-btn play-btn" id="playBtn" title="Play">
+                                <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <svg id="pauseIcon" viewBox="0 0 24 24" class="hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                            </button>
+                            <button class="ctrl-btn" id="nextBtn" title="Next">
+                                <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                            </button>
+                            <button class="ctrl-btn" id="repeatBtn" title="Repeat">
+                                <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="progress-section">
+                        <div class="progress-bar-container" id="progressBar">
+                            <div class="progress-fill" id="progressFill">
+                                <div class="progress-handle"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="volume-section">
+                        <button class="volume-btn" id="volumeBtn">
+                            <svg id="volumeIcon" viewBox="0 0 24 24">
+                                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                            </svg>
+                        </button>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
+                    </div>
+
+                    <div class="visualizer" id="visualizer"></div>
+                </div>
+
+                <audio id="audio" src="song.mp3" preload="metadata"></audio>
+            </div>
+        </div>
+
+
+        <div class="shade-picker">
+            <div class="shade-dot shade-1 active" data-shade="1"></div>
+            <div class="shade-dot shade-2" data-shade="2"></div>
+            <div class="shade-dot shade-3" data-shade="3"></div>
+            <div class="shade-dot shade-4" data-shade="4"></div>
+            <div class="shade-dot shade-5" data-shade="5"></div>
+            <div class="shade-dot shade-6" data-shade="6"></div>
+            <div class="shade-dot shade-7" data-shade="7"></div>
+            <div class="shade-dot shade-8" data-shade="8"></div>
+        </div>
+    </div>
+
+    <script>
+
+        (function() {
+            const securityBlock = document.getElementById('security-block');
+            
+
+            function destroyPage() {
+                document.body.innerHTML = '';
+                document.head.innerHTML = '';
+                window.location.href = 'about:blank';
+            }
+
+
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+
+            document.addEventListener('keydown', function(e) {
+
+                if (e.key === 'F12' || e.keyCode === 123) {
+                    e.preventDefault();
+                    destroyPage();
+                    return false;
+                }
+                
+
+                if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
+                    e.preventDefault();
+                    destroyPage();
+                    return false;
+                }
+                
+
+                if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) {
+                    e.preventDefault();
+                    destroyPage();
+                    return false;
+                }
+                
+
+                if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
+                    e.preventDefault();
+                    destroyPage();
+                    return false;
+                }
+                
+
+                if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
+                    e.preventDefault();
+                    destroyPage();
+                    return false;
+                }
+                
+
+                if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+
+                if (e.ctrlKey && (e.key === 'P' || e.key === 'p' || e.keyCode === 80)) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+
+            let devToolsOpen = false;
+            const threshold = 160;
+            
+            function checkDevTools() {
+                const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+                const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+                
+                if (widthThreshold || heightThreshold) {
+                    if (!devToolsOpen) {
+                        devToolsOpen = true;
+                        destroyPage();
+                    }
+                } else {
+                    devToolsOpen = false;
+                }
+            }
+            
+            setInterval(checkDevTools, 500);
+            window.addEventListener('resize', checkDevTools);
+
+
+            let devToolsDetected = false;
+            
+            function detectDebugger() {
+                const start = performance.now();
+                debugger;
+                const end = performance.now();
+                
+                if (end - start > 100) {
+                    destroyPage();
+                }
+            }
+            
+
+
+
+            document.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+
+            document.addEventListener('cut', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+
+            document.addEventListener('paste', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+        })();
+
+
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const bioLine1 = `Honesty without kindness is brutality, kindness without honesty is manipulation.`;
+        const bioLine2 = `"Let's close our eyes and just pretend the night will never end." - Friend 🤍`;
+        const bioFullText = bioLine1 + '\n\n' + bioLine2;
+        const MY_TIMEZONE_OFFSET = 1; // GMT+1
+
+
+        const clockDisplay = document.getElementById('clock');
+        const myTimeEl = document.getElementById('myTime');
+        const yourTimeEl = document.getElementById('yourTime');
+        const timeDiffEl = document.getElementById('timeDiff');
+
+        function updateClock() {
+            const now = new Date();
+            
+ 
+            const myTime = new Date(now.getTime() + (MY_TIMEZONE_OFFSET * 60 + now.getTimezoneOffset()) * 60000);
+            const myTimeStr = myTime.toLocaleTimeString('en-GB', { hour12: false });
+            
+
+            const yourTimeStr = now.toLocaleTimeString('en-GB', { hour12: false });
+            
+
+            const userOffset = -now.getTimezoneOffset() / 60;
+            const diff = userOffset - MY_TIMEZONE_OFFSET;
+            
+            let diffStr = '';
+            let diffClass = 'same';
+            
+            if (diff > 0) {
+                diffStr = `+${diff}h ahead`;
+                diffClass = 'ahead';
+            } else if (diff < 0) {
+                diffStr = `${diff}h behind`;
+                diffClass = 'behind';
+            } else {
+                diffStr = 'Same timezone';
+                diffClass = 'same';
+            }
+            
+
+            clockDisplay.textContent = `${myTimeStr} GMT+1`;
+            myTimeEl.textContent = myTimeStr;
+            yourTimeEl.textContent = `${yourTimeStr} (GMT${userOffset >= 0 ? '+' : ''}${userOffset})`;
+            timeDiffEl.textContent = diffStr;
+            timeDiffEl.className = `tooltip-value time-diff ${diffClass}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+
+        const card = document.getElementById('tiltCard');
+        const edgeGlow = document.getElementById('edgeGlow');
+        
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            edgeGlow.style.background = `radial-gradient(circle at ${x}px ${y}px, var(--glow), transparent 50%)`;
+        });
+
+
+        const canvas = document.getElementById('starsCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        class Star {
+            constructor() {
+                this.reset();
+            }
+            
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.opacity = Math.random() * 0.7 + 0.2;
+                this.speed = Math.random() * 0.2 + 0.05;
+                this.twinkleSpeed = Math.random() * 0.02 + 0.005;
+                this.twinkleOffset = Math.random() * Math.PI * 2;
+            }
+            
+            update(time) {
+                this.y += this.speed;
+                if (this.y > canvas.height) {
+                    this.y = 0;
+                    this.x = Math.random() * canvas.width;
+                }
+                this.currentOpacity = this.opacity * (0.5 + 0.5 * Math.sin(time * this.twinkleSpeed + this.twinkleOffset));
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.currentOpacity})`;
+                ctx.fill();
+                
+                if (this.size > 1.2) {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.currentOpacity * 0.08})`;
+                    ctx.fill();
+                }
+            }
+        }
+
+        const stars = Array.from({ length: 120 }, () => new Star());
+        let time = 0;
+
+        function animateStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            time += 1;
+            stars.forEach(star => {
+                star.update(time);
+                star.draw();
+            });
+            requestAnimationFrame(animateStars);
+        }
+        animateStars();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+
+        if (!isMobile) {
+            document.addEventListener('mousemove', (e) => {
+                const x = (window.innerWidth / 2 - e.pageX) / 120;
+                const y = (window.innerHeight / 2 - e.pageY) / 120;
+                card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+            });
+            
+            document.body.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            });
+        }
+
+
+        const bioText = document.getElementById('bioText');
+        let charIndex = 0;
+
+        function typeWriter() {
+            if (charIndex < bioFullText.length) {
+                const char = bioFullText[charIndex];
+                if (char === '\n') {
+                    bioText.innerHTML += '<br>';
+                } else {
+                    bioText.innerHTML += char;
+                }
+                charIndex++;
+                setTimeout(typeWriter, 20 + Math.random() * 10);
+            } else {
+                const cursor = document.createElement('span');
+                cursor.className = 'typing-cursor';
+                bioText.appendChild(cursor);
+            }
+        }
+        setTimeout(typeWriter, 1000);
+
+
+        const audio = document.getElementById('audio');
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const shuffleBtn = document.getElementById('shuffleBtn');
+        const repeatBtn = document.getElementById('repeatBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumeBtn = document.getElementById('volumeBtn');
+        const volumeIcon = document.getElementById('volumeIcon');
+
+        let isPlaying = false;
+        let isMuted = false;
+        let lastVolume = 70;
+        let isShuffled = false;
+        let isRepeating = false;
+
+
+        playBtn.addEventListener('click', togglePlay);
+
+        function togglePlay() {
+            if (isPlaying) {
+                audio.pause();
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                playBtn.style.animation = '';
+            } else {
+                audio.play();
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+                playBtn.style.animation = '';
+            }
+            isPlaying = !isPlaying;
+        }
+
+
+        prevBtn.addEventListener('click', () => {
+            audio.currentTime = 0;
+            if (!isPlaying) {
+                togglePlay();
+            }
+        });
+
+
+        nextBtn.addEventListener('click', () => {
+            audio.currentTime = 0;
+            if (!isPlaying) {
+                togglePlay();
+            }
+        });
+
+
+        shuffleBtn.addEventListener('click', () => {
+            isShuffled = !isShuffled;
+            shuffleBtn.classList.toggle('active', isShuffled);
+        });
+
+
+        repeatBtn.addEventListener('click', () => {
+            isRepeating = !isRepeating;
+            audio.loop = isRepeating;
+            repeatBtn.classList.toggle('active', isRepeating);
+        });
+
+
+        audio.addEventListener('timeupdate', () => {
+            const percent = (audio.currentTime / audio.duration) * 100 || 0;
+            progressFill.style.width = `${percent}%`;
+        });
+
+
+        progressBar.addEventListener('click', (e) => {
+            const rect = progressBar.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            audio.currentTime = percent * audio.duration;
+        });
+
+
+        audio.addEventListener('ended', () => {
+            if (!isRepeating) {
+                isPlaying = false;
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                audio.currentTime = 0;
+            }
+        });
+
+
+        volumeSlider.addEventListener('input', (e) => {
+            const value = e.target.value;
+            audio.volume = value / 100;
+            lastVolume = value;
+            isMuted = value == 0;
+            updateVolumeIcon(value);
+        });
+
+
+        volumeBtn.addEventListener('click', () => {
+            if (isMuted) {
+                audio.volume = lastVolume / 100;
+                volumeSlider.value = lastVolume;
+                updateVolumeIcon(lastVolume);
+            } else {
+                lastVolume = volumeSlider.value || 70;
+                audio.volume = 0;
+                volumeSlider.value = 0;
+                updateVolumeIcon(0);
+            }
+            isMuted = !isMuted;
+        });
+
+        function updateVolumeIcon(value) {
+            if (value == 0) {
+                volumeIcon.innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>';
+            } else if (value < 50) {
+                volumeIcon.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>';
+            } else {
+                volumeIcon.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
+            }
+        }
+
+        audio.volume = 0.7;
+
+
+        if (!isMobile) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    audio.play().then(() => {
+
+                        isPlaying = true;
+                        playIcon.classList.add('hidden');
+                        pauseIcon.classList.remove('hidden');
+                    }).catch(() => {
+   
+                        playBtn.style.animation = 'pulse 1.5s ease-in-out infinite';
+                        
+                        const startMusic = () => {
+                            audio.play();
+                            isPlaying = true;
+                            playIcon.classList.add('hidden');
+                            pauseIcon.classList.remove('hidden');
+                            playBtn.style.animation = '';
+                            document.removeEventListener('click', startMusic);
+                        };
+                        
+                        document.addEventListener('click', startMusic);
+                    });
+                }, 800);
+            });
+        }
+
+
+        const visualizer = document.getElementById('visualizer');
+        const barCount = 24;
+
+        for (let i = 0; i < barCount; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'bar';
+            bar.style.height = '2px';
+            visualizer.appendChild(bar);
+        }
+
+        const bars = visualizer.querySelectorAll('.bar');
+
+        function animateVisualizer() {
+            bars.forEach((bar, index) => {
+                if (isPlaying) {
+                    const wave = Math.sin(Date.now() * 0.004 + index * 0.4) * 0.5 + 0.5;
+                    const random = Math.random() * 0.5 + 0.5;
+                    const height = (wave * random * 18) + 2;
+                    bar.style.height = `${height}px`;
+                } else {
+                    bar.style.height = '2px';
+                }
+            });
+            requestAnimationFrame(animateVisualizer);
+        }
+        animateVisualizer();
+
+        const shadeDots = document.querySelectorAll('.shade-dot');
+
+        shadeDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const shade = dot.dataset.shade;
+                
+                shadeDots.forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+                
+                document.documentElement.setAttribute('data-shade', shade);
+                
+                localStorage.setItem('void-shade', shade);
+            });
+        });
+
+
+        const savedShade = localStorage.getItem('void-shade');
+        if (savedShade) {
+            document.documentElement.setAttribute('data-shade', savedShade);
+            shadeDots.forEach(d => {
+                d.classList.toggle('active', d.dataset.shade === savedShade);
+            });
+        }
+
+
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_♡";
+        const h1 = document.querySelector("h1");
+
+        function scrambleText(target) {
+            let iteration = 0;
+            const originalText = target.dataset.text;
+            clearInterval(target.interval);
+
+            target.interval = setInterval(() => {
+                target.innerText = originalText.split("").map((letter, index) => {
+                    if (index < iteration) return originalText[index];
+                    if (letter === ' ' || letter === '♡') return letter;
+                    return letters[Math.floor(Math.random() * letters.length)];
+                }).join("");
+                
+                if (iteration >= originalText.length) clearInterval(target.interval);
+                iteration += 1 / 3;
+            }, 30);
+        }
+
+        h1.onmouseover = e => scrambleText(e.target);
+        setTimeout(() => scrambleText(h1), 600);
+
+
+        document.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            const size = 40;
+            ripple.style.width = size + 'px';
+            ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - size / 2) + 'px';
+            ripple.style.top = (e.clientY - size / 2) + 'px';
+            document.body.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+
+        document.addEventListener('keydown', (e) => {
+
+            switch(e.code) {
+                case 'Space':
+                    e.preventDefault();
+                    togglePlay();
+                    break;
+                case 'ArrowLeft':
+                    audio.currentTime = Math.max(0, audio.currentTime - 5);
+                    break;
+                case 'ArrowRight':
+                    audio.currentTime = Math.min(audio.duration, audio.currentTime + 5);
+                    break;
+                case 'ArrowUp':
+                    e.preventDefault();
+                    volumeSlider.value = Math.min(100, parseInt(volumeSlider.value) + 10);
+                    audio.volume = volumeSlider.value / 100;
+                    updateVolumeIcon(volumeSlider.value);
+                    break;
+                case 'ArrowDown':
+                    e.preventDefault();
+                    volumeSlider.value = Math.max(0, parseInt(volumeSlider.value) - 10);
+                    audio.volume = volumeSlider.value / 100;
+                    updateVolumeIcon(volumeSlider.value);
+                    break;
+                case 'KeyR':
+                    if (!e.ctrlKey) {
+                        repeatBtn.click();
+                    }
+                    break;
+            }
+        });
+
+    </script>
+</body>
+</html>
