@@ -1,0 +1,10 @@
+/* TEAM */
+Creator: avery
+Contact: avery@site-64.com
+Location: GMT+1
+
+/* SITE */
+Last update: 2026/02/28
+Language: English
+Standards: HTML5, CSS3, JavaScript ES6
+Software: Visual Studio Code
