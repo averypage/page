@@ -2,13 +2,111 @@
 <!DOCTYPE html>
 <html lang="en" data-shade="1">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="Utd8DlIaLS_eMYkDKh5fXD0JaBccXVDAHoEYQywzSiY" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Profile Page?</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Avery | Personal Profile</title>
+    <meta name="title" content="Avery | Personal Profile">
+    <meta name="description" content="Personal profile page of avery. Sipping tea from time to time.">
+    <meta name="keywords" content="avery, profile, personal, portfolio, developer, designer">
+    <meta name="author" content="avery">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+
+    <link rel="canonical" href="https://averyy.vercel.app/">
+    
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://averyy.vercel.app/">
+    <meta property="og:title" content="Avery | Personal Profile">
+    <meta property="og:description" content="Personal profile page of avery. Sipping tea from time to time.">
+    <meta property="og:image" content="https://averyy.vercel.app/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="avery profile">
+    <meta property="og:site_name" content="avery">
+    <meta property="og:locale" content="en_US">
+    
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://averyy.vercel.app/">
+    <meta name="twitter:title" content="Avery | Personal Profile">
+    <meta name="twitter:description" content="Personal profile page of avery. Sipping tea from time to time.">
+    <meta name="twitter:image" content="https://averyy.vercel.app/assets/og-image.jpg">
+    <meta name="twitter:creator" content="@avery">
+    
+
+    <meta name="theme-color" content="#000000">
+    
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#000000">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+
+    <link rel="manifest" href="/manifest.json">
+    
+
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <meta name="msapplication-TileImage" content="/icons/icon-144.png">
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+
+    <link rel="preload" href="assets/gfx.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="assets/pfp.jpg" as="image">
+    <link rel="preload" href="assets/bg.jpg" as="image">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "avery",
+        "alternateName": "avery.u",
+        "url": "https://averyy.vercel.app/",
+        "image": "https://averyy.vercel.app/assets/pfp.jpg",
+        "description": "Sipping tea from time to time.",
+        "sameAs": [
+            "https://github.com/averypage",
+            "https://www.roblox.com/users/8120336784/profile"
+        ],
+        "jobTitle": "Digital Architect",
+        "knowsAbout": ["Web Development", "Design", "UI/UX"]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "avery",
+        "url": "https://averyy.vercel.app/",
+        "description": "Personal profile page of avery",
+        "author": {
+            "@type": "Person",
+            "name": "avery"
+        }
+    }
+    </script>
+
+    <meta name="void-token" content="<?php echo PAGE_TOKEN; ?>">
+    
+<style>
         :root {
             --shade-1: #000000;
             --shade-2: #0a0a0a;
@@ -683,6 +781,11 @@
             margin-bottom: 18px;
             letter-spacing: 0.02em;
             transition: color 0.5s ease;
+            -webkit-user-select: all;
+            -moz-user-select: all;
+            -ms-user-select: all;
+            user-select: all;
+            -webkit-touch-callout: all;
         }
 
 
@@ -1145,7 +1248,7 @@
 
     <div class="video-bg">
         <video autoplay muted loop playsinline id="bgVideo">
-            <source src="gfx.mp4" type="video/mp4">
+            <source src="assets/gfx.mp4" type="video/mp4">
         </video>
     </div>
     <div class="bg-overlay"></div>
@@ -1202,18 +1305,23 @@
                     <svg viewBox="0 0 24 24"><path d="M5.164 0L.16 18.928 18.836 24l5.004-18.928L5.164 0zm9.086 14.044l-4.157-1.13 1.13-4.157 4.157 1.13-1.13 4.157z"/></svg>
                     <div class="tooltip tooltip-simple">Roblox</div>
                 </a>
+                <!-- Roblox -->
+                <a class="badge-link has-tooltip" href="https://steamcommunity.com/profiles/76561199110503022/" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg>
+                    <div class="tooltip tooltip-simple">Steam</div>
+                </a>
             </div>
             
 
             <div class="banner">
-                <img src="bg.jpg" alt="Banner" draggable="false">
+                <img src="assets/bg.jpg" alt="Banner" draggable="false">
             </div>
 
             <div class="pfp-wrapper">
                 <div class="pfp-glow"></div>
                 <div class="pfp-ring"></div>
                 <div class="pfp-ring-inner"></div>
-                <img src="pfp.jpg" alt="Profile" class="pfp-img" draggable="false">
+                <img src="assets/pfp.jpg" alt="Profile" class="pfp-img" draggable="false">
                 <div class="status-container">
                     <div class="status-ping"></div>
                     <div class="status-dot"></div>
@@ -1299,7 +1407,7 @@
                     <div class="visualizer" id="visualizer"></div>
                 </div>
 
-                <audio id="audio" src="song.mp3" preload="metadata"></audio>
+                <audio id="audio" src="assets/song.mp3" preload="metadata"></audio>
             </div>
         </div>
 
