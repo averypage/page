@@ -1,0 +1,4 @@
+Contact: mailto:avery@site-64.com
+Preferred-Languages: en
+Canonical: https://https://averyy.vercel.app/.well-known/security.txt
+Expires: 2026-12-31T23:59:00.000Z
