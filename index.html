@@ -1490,41 +1490,6 @@
             });
 
 
-            let devToolsOpen = false;
-            const threshold = 160;
-            
-            function checkDevTools() {
-                const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-                const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-                
-                if (widthThreshold || heightThreshold) {
-                    if (!devToolsOpen) {
-                        devToolsOpen = true;
-                        destroyPage();
-                    }
-                } else {
-                    devToolsOpen = false;
-                }
-            }
-            
-            setInterval(checkDevTools, 500);
-            window.addEventListener('resize', checkDevTools);
-
-
-            let devToolsDetected = false;
-            
-            function detectDebugger() {
-                const start = performance.now();
-                debugger;
-                const end = performance.now();
-                
-                if (end - start > 100) {
-                    destroyPage();
-                }
-            }
-            
-
-
 
             document.addEventListener('dragstart', function(e) {
                 e.preventDefault();
